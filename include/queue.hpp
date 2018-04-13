@@ -37,6 +37,14 @@ public:
 	node_t * tail_() {
 		return tail;
 	}
+	
+	T head__(node_t* head_){
+		return head_->value;
+	}
+	
+	T tail__(node_t* tail_){
+		return tail_->value;
+	}
     
     void push(T val)
     {   
