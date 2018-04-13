@@ -13,7 +13,7 @@ private:
     };
 private:
     node_t* head;
-    node_t* tail
+    node_t* tail;
 
 public:
     queue_t()
