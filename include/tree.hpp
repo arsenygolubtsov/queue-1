@@ -27,6 +27,8 @@ public:
         if (head != nullptr)
         {
             del(head);
+            delete head;
+            delete tail;
         }
     }
 
@@ -42,7 +44,7 @@ public:
         }
     }
     
-    void push(T val){
+    void push(T val)
     {   
         if (head == nullptr)
         {
@@ -59,3 +61,33 @@ public:
             tail->next = nullptr;
         }
     }
+    
+    T pop()
+    {
+        if(head == nullptr){
+            throw Error("Error delete element");
+        }
+        T a = head->value;
+        node_t* node = head;
+        head = head->next;
+        delete node;
+        return a;
+    }
+    
+    queue_t(queue_t const& other)
+    {
+        node_t* node = other.head;
+        head = new node_t;
+        head->value = node->value;
+        head->next = nullptr;
+        tail = head;
+        node = node->next;
+        while(node != nullptr){
+            tail->next = new node_t;
+            tail = tail->next;
+            tail->value = node->value;
+            tail->next = nullptr;
+            node = node->next;
+        }
+    }
+};
