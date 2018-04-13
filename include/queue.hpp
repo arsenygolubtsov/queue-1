@@ -24,11 +24,19 @@ public:
     
     ~tree_t()
     {
-        if (head != nullptr)
-        {
-            del(head);
+        while(head != nullptr){
+            node_t* node = head;
+            head = head->next;
+            delete node;
         }
     }
+    
+    node_t * head_() {
+		return head;
+	}
+	node_t * tail_() {
+		return tail;
+	}
 
     void del(node_t* run_)
     {
@@ -63,7 +71,7 @@ public:
     T pop()
     {
         if(head == nullptr){
-            throw Error("Error delete element");
+            throw std::logic_error("Error delete element");
         }
         T a = head->value;
         node_t* node = head;
@@ -72,27 +80,10 @@ public:
         return a;
     }
     
-    queue_t(queue_t const& other)
+    queue_t<T> & operator=(queue_t<T> const & other)
     {
-        node_t* node = other.head;
-        head = new node_t;
-        head->value = node->value;
-        head->next = nullptr;
-        tail = head;
-        node = node->next;
-        while(node != nullptr){
-            tail->next = new node_t;
-            tail = tail->next;
-            tail->value = node->value;
-            tail->next = nullptr;
-            node = node->next;
-        }
-        return *this;
-    }
-    
-    auto operator=(queue_t<T> const& other)
-    {
-        node_t* node = other.head;
+        ~queue_t();
+        node_t* node = other.head_;
         head = new node_t;
         head->value = node->value;
         head->next = nullptr;
