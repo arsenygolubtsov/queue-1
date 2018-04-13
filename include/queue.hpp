@@ -22,31 +22,12 @@ public:
         tail = nullptr;
     }
     
-    ~tree_t()
+    ~queue_t()
     {
         while(head != nullptr){
             node_t* node = head;
             head = head->next;
             delete node;
-        }
-    }
-    
-    node_t * head_() {
-		return head;
-	}
-	node_t * tail_() {
-		return tail;
-	}
-
-    void del(node_t* run_)
-    {
-        if (run_ != nullptr)
-        {
-            if (run_->next != nullptr)
-            {
-                del(run_->next);
-            }
-            delete run_;
         }
     }
     
