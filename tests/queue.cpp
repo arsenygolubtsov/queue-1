@@ -64,10 +64,11 @@ TEST_CASE("copy")
 	queue_t<int> q2;
 	q1.push(3);
 	q1.push(6);
+	
 	q2.push(1);
 	
 	q2 = q1;
 	
-	REQUIRE( q2.head__(q.head_()) == 3 );
-	REQUIRE( q2.tail__(q.tail_()) == 6 );
+	REQUIRE( q2.head__(q2.head_()) == 3 );
+	REQUIRE( q2.tail__(q2.tail_()) == 6 );
 }
