@@ -78,20 +78,14 @@ public:
     
     queue_t<T> & operator=(queue_t<T> & other)
     {
-        ~queue_t();
+	if(other.head){
+        	this->~queue_t();
+	}
         node_t* node = other.head_();
-        head = new node_t;
-        head->value = node->value;
-        head->next = nullptr;
-        tail = head;
-        node = node->next;
-        while(node != nullptr){
-            tail->next = new node_t;
-            tail = tail->next;
-            tail->value = node->value;
-            tail->next = nullptr;
-            node = node->next;
-        }
+        while(node){
+		push(node->value);
+		node = node->next;
+	}
         return *this;
     }
 };
