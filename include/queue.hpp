@@ -87,5 +87,24 @@ public:
             tail->next = nullptr;
             node = node->next;
         }
+        return *this;
+    }
+    
+    auto operator=(queue_t<T> const& other)
+    {
+        node_t* node = other.head;
+        head = new node_t;
+        head->value = node->value;
+        head->next = nullptr;
+        tail = head;
+        node = node->next;
+        while(node != nullptr){
+            tail->next = new node_t;
+            tail = tail->next;
+            tail->value = node->value;
+            tail->next = nullptr;
+            node = node->next;
+        }
+        return *this;
     }
 };
