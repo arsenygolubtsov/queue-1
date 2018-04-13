@@ -76,10 +76,10 @@ public:
         return a;
     }
     
-    queue_t<T> & operator=(queue_t<T> const & other)
+    queue_t<T> & operator=(queue_t<T> & other)
     {
         ~queue_t();
-        node_t* node = other.head_;
+        node_t* node = other.head_();
         head = new node_t;
         head->value = node->value;
         head->next = nullptr;
