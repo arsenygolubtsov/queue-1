@@ -27,8 +27,6 @@ public:
         if (head != nullptr)
         {
             del(head);
-            delete head;
-            delete tail;
         }
     }
 
