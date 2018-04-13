@@ -31,6 +31,13 @@ public:
         }
     }
     
+    node_t * head_() {
+		return head;
+	}
+	node_t * tail_() {
+		return tail;
+	}
+    
     void push(T val)
     {   
         if (head == nullptr)
@@ -42,9 +49,9 @@ public:
         }
         else
         {
-            tail->next = new node_t
+            tail->next = new node_t;
             tail = tail->next;
-            tail->value = value;
+            tail->value = val;
             tail->next = nullptr;
         }
     }
