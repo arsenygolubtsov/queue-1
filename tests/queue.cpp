@@ -13,17 +13,18 @@ TEST_CASE("creating_tree")
 TEST_CASE("push and pop int")
 {
 	queue_t<int> q;
+	
 	q.push(3);
-	REQUIRE( q.head_() == 3 );
-	REQUIRE( q.tail_() == 3 );
+	REQUIRE( q.head__(q.head_()) == 3 );
+	REQUIRE( q.tail__(q.tail_()) == 3 );
 	
 	q.push(6);
-	REQUIRE( q.head_() == 3 );
-	REQUIRE( q.tai_() == 6 );
+	REQUIRE( q.head__(q.head_()) == 3 );
+	REQUIRE( q.tail__(q.tail_()) == 6 );
 	
 	q.push(9);
-	REQUIRE( q.head_() == 3 );
-	REQUIRE( q.tail_() == 9 );
+	REQUIRE( q.head__(q.head_()) == 3 );
+	REQUIRE( q.tail__(q.tail_()) == 9 );
 	
 	REQUIRE( q.pop() == 3 );
 	REQUIRE( q.pop() == 6 );
@@ -33,17 +34,18 @@ TEST_CASE("push and pop int")
 TEST_CASE("push and pop double")
 {
 	queue_t<double> q;
+	
 	q.push(3.3);
-	REQUIRE( q.head_() == 3.3 );
-	REQUIRE( q.tail_() == 3.3 );
+	REQUIRE( q.head__(q.head_()) == 3.3 );
+	REQUIRE( q.tail__(q.tail_()) == 3.3 );
 	
 	q.push(6.6);
-	REQUIRE( q.head_() == 3.3 );
-	REQUIRE( q.tail_() == 6.6 );
+	REQUIRE( q.head__(q.head_()) == 3.3 );
+	REQUIRE( q.tail__(q.tail_()) == 6.6 );
 	
 	q.push(9.9);
-	REQUIRE( q.head_() == 3.3 );
-	REQUIRE( q.tail_() == 9.9 );
+	REQUIRE( q.head__(q.head_()) == 3.3 );
+	REQUIRE( q.tail__(q.tail_()) == 9.9 );
 	
 	REQUIRE( q.pop() == 3.3 );
 	REQUIRE( q.pop() == 6.6 );
