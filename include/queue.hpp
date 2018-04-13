@@ -86,7 +86,7 @@ public:
 			push(node->value);
 			node = node->next;
 		}
-        	return *this;
+        	
 	}
 	
     queue_t<T> & operator=(queue_t<T> & other)
