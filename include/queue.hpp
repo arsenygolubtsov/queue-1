@@ -24,7 +24,7 @@ public:
     
     ~queue_t()
     {
-        while(head){
+        while(head != nullptr){
             node_t* node = head;
             head = head->next;
             delete node;
@@ -72,17 +72,20 @@ public:
         T a = head->value;
         node_t* node = head;
         head = head->next;
+	if(head == nullptr){
+		tail = nullptr;
+	}
         delete node;
         return a;
     }
     
     queue_t<T> & operator=(queue_t<T> & other)
     {
-	if(other.head){
+	if(other.head != nullptr){
         	this->~queue_t();
 	}
         node_t* node = other.head_();
-        while(node){
+        while(node != nullptr){
 		push(node->value);
 		node = node->next;
 	}
