@@ -92,7 +92,7 @@ public:
     queue_t<T> & operator=(queue_t<T> & other)
     {
 	    if(other.head_()! = nullptr){
-		    ~queue_t();
+		    this->~queue_t();
              }
 
         node_t* node = other.head_();
