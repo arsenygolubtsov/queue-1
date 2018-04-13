@@ -24,7 +24,7 @@ public:
     
     ~queue_t()
     {
-        while(head != nullptr){
+        while(head){
             node_t* node = head;
             head = head->next;
             delete node;
