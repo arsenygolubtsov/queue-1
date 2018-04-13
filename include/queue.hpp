@@ -79,11 +79,19 @@ public:
         return a;
     }
     
+	queue_t(queue_t<T> const & other)
+	{
+		node_t* node = other.head_();
+        	while(node != nullptr){
+			push(node->value);
+			node = node->next;
+		}
+        	return *this;
+	}
+	
     queue_t<T> & operator=(queue_t<T> & other)
     {
-	if(other.head_() != nullptr){
-        	this->~queue_t();
-	}
+	~queue_t();
         node_t* node = other.head_();
         while(node != nullptr){
 		push(node->value);
