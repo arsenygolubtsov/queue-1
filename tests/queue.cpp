@@ -61,13 +61,13 @@ TEST_CASE("throw")
 TEST_CASE("copy")
 {
 	queue_t<int> q1;
+	queue_t<int> q2;
 	q1.push(3);
 	q1.push(6);
-	q1.push(9);
-	queue_t<int> q2 = q1;
-	int sum = q2.pop();
-	sum = sum + q2.pop();
-	sum = sum + q2.pop();
-	REQUIRE( sum == 18 );
+	q2.push(1);
 	
+	q2 = q1;
+	
+	REQUIRE( q2.head__(q.head_()) == 3 );
+	REQUIRE( q2.tail__(q.tail_()) == 6 );
 }
